@@ -1,4 +1,4 @@
-# 🌬️ TimeFlux Technical Assessment - Data Engineering
+# 🌬️ Turbine Data Enrichment Pipeline
 
 A real-time data enrichment pipeline for wind turbine telemetry using Kafka, Python microservices, and Docker Compose.
 
@@ -92,8 +92,8 @@ This project implements a streaming data enrichment service that:
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/YOUR-USERNAME/timeflux-tech-test.git
-cd timeflux-tech-test
+git clone https://github.com/YOUR-USERNAME/turbine-data-enrichment.git
+cd turbine-data-enrichment
 ```
 
 ### 2. Start all services
@@ -334,7 +334,7 @@ You should see messages flowing with the `country` field added.
 ### 1. **Synchronous Processing**
 
 - **Choice**: Single-threaded consumer with blocking API calls
-- **Rationale**: Simplicity and clarity for a technical assessment; easier to debug and understand
+- **Rationale**: Simplicity and clarity; easier to debug and understand
 - **Trade-off**: Limited throughput (~12-100 messages/minute acceptable for this use case)
 - **Production alternative**: Use async HTTP (aiohttp) or parallel workers for higher throughput
 
@@ -507,10 +507,10 @@ docker-compose logs enrichment-service
 ## 👤 Author
 
 **El Mehdi RAJI**  
-Technical Assessment for TimeFlux - Data Engineering Position
+Data Engineer
 
 ---
 
 ## 📄 License
 
-This project is created for educational and assessment purposes.
+This project is available under the MIT License.
