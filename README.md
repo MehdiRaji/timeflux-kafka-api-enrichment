@@ -504,13 +504,7 @@ docker-compose logs enrichment-service
 
 ---
 
-## 👤 Author
-
-**El Mehdi RAJI**  
-Data Engineer
-
----
-
 ## 📄 License
 
-This project is available under the MIT License.
+Copyright © 2026 El Mehdi RAJI. All rights reserved.
+This code is provided for portfolio demonstration purposes only.
