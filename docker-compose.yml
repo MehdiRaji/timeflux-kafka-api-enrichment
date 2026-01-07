@@ -24,3 +24,9 @@ services:
 
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+  
+  referential-api:
+    build: ./referential_api
+    container_name: referential-api
+    ports:
+      - "5000:5000"
