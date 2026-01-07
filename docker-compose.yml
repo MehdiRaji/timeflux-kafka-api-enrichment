@@ -18,15 +18,34 @@ services:
     environment:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-
       KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
-
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
-  
+
+  producer:
+    build: ./producer
+    container_name: producer
+    depends_on:
+      - kafka
+    environment:
+      KAFKA_BROKER: kafka:9092             
+      EVENTS_PER_MINUTE: 12
+
   referential-api:
     build: ./referential_api
     container_name: referential-api
     ports:
       - "5000:5000"
+
+  enrichment-service:
+    build: ./enrichment_service
+    container_name: enrichment-service
+    depends_on:
+      - kafka
+      - referential-api
+    environment:
+      KAFKA_BROKER: kafka:9092
+      INPUT_TOPIC: raw-turbine-data
+      OUTPUT_TOPIC: enriched-turbine-data
+      REFERENTIAL_API_URL: http://referential-api:5000/turbine
